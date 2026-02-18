@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="posts-wrapper">
+
+  <!-- Left column: posts -->
+  <div class="posts-column">
+    {{ range .Paginator.Pages }}
+      <article class="post-entry">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p>{{ .Summary }}</p>
+      </article>
+    {{ end }}
+
+    {{ range .Pages }}
+      <article class="post-entry">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ .Content }}
+      </article>
+    {{ end }}
+  </div>
+
+  <!-- Right column: vector image -->
+  <div class="image-column">
+    <img src="/images/flow-right.png" class="vector-right" alt="Vector field">
+  </div>
+
+</div>
+{{ end }}

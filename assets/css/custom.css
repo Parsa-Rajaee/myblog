@@ -1,0 +1,322 @@
+/* ======================================= */
+/* 1. Body / RTL / font                     */
+/* ======================================= */
+/*@import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.003/Vazirmatn-font-face.css');
+*/
+@font-face {
+  font-family: "IRANSansX";
+  src: url("/fonts/IRANSansX-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSansX";
+  src: url("/fonts/IRANSansX-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+/* Wrapper: flexbox with main + sidebar */
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+/* Main content takes most of the width */
+.main {
+  flex: 1;
+  padding-right: 1rem;
+  z-index: 1; /* ensures posts stay above bg image */
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  position: sticky;   /* stays visible when scrolling */
+  top: 0;
+  height: 100vh;      /* full screen height */
+  overflow: hidden;
+}
+
+.sidebar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: filter 0.3s ease;
+}
+
+/* Dark mode inversion */
+body.dark .sidebar img {
+  filter: invert(1) brightness(1.2);
+}
+
+/* Hide sidebar on small screens */
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+
+.about-button {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem; /* or right: 2rem; depending on where you want */
+  background-color: #FF6600;
+  color: #fff !important;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-family: "IRANSansX" !important;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+  z-index: 1000;
+}
+
+.about-button:hover {
+  background-color: #e55c00;
+}
+
+
+
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: "IRANSansX" !important;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: #111111;
+  margin: 0;
+  padding: 0;
+}
+/* ======================================= */
+/* 2. Center blog title                     */
+/* ======================================= */
+.header-title {
+  text-align: center !important;
+  width: 100%;
+  margin: auto;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 1rem 0;
+}
+
+/* ======================================= */
+/* 3. Main content and sidebar             */
+/* ======================================= */
+.main-content {
+  display: flex;           /* sidebar left, posts right */
+  flex-direction: row;
+  justify-content: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 25%;
+  margin-right: 2rem;
+  position: sticky;
+  top: 1rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Sidebar header (categories) */
+.sidebar h2 {
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.3rem;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  padding: 0.3rem 0;
+  color: #111111;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.sidebar a:hover {
+  color: #007acc;
+}
+/* Decorative right sidebar */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;                /* default width */
+  height: 100vh;
+  background: url("/images/flow-right.png") no-repeat top right;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+  transition: filter 0.3s ease;
+}
+
+/* Dark mode inversion */
+body.dark::after {
+  filter: invert(1) brightness(1.2);
+}
+
+/* On small screens: shrink image instead of hiding */
+@media screen and (max-width: 768px) {
+  body::after {
+    width: 110px;        /* smaller sidebar */
+    background-size: contain; /* keep proportions */
+  }
+  .main {
+    margin-right: 130px; /* adjust spacing for smaller sidebar */
+  }
+}
+
+/* Post card */
+.post-card {
+  margin-bottom: 2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* ======================================= */
+/* 5. Pagination / Pager                    */
+/* ======================================= */
+.pagination {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.pagination a {
+  padding: 0.5rem 0.8rem;
+  margin: 0 0.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #007acc;
+  border: 1px solid #ddd;
+  transition: all 0.2s;
+}
+
+.pagination a:hover {
+  background-color: #007acc;
+  color: white;
+  border-color: #007acc;
+}
+
+/* ======================================= */
+/* 6. Table of contents / optional toc      */
+/* ======================================= */
+.toc {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.toc a {
+  text-decoration: none;
+  color: #007acc;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+/* ======================================= */
+/* 7. Mobile responsiveness                 */
+/* ======================================= */
+@media (max-width: 992px) {
+  .main-content {
+    flex-direction: column; /* stack sidebar below posts */
+  }
+
+  .sidebar {
+    width: 100%;
+    margin: 2rem 0 1rem 0;
+    position: relative;
+    top: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .content {
+    width: 100%;
+  }
+}
+
+.related-posts {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.related-posts h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-family: "IRANSansX" !important;
+}
+
+.related-posts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.related-posts li {
+    margin-top: 2rem; /* adds space above the recommended posts section */
+}
+
+.related-posts a {
+  text-decoration: none;
+  color: #007acc;
+}
+
+.related-posts a:hover {
+  text-decoration: underline;
+}
+
+.related-links a {
+    color: #e67e22; /* Orange, for example */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.related-links a:hover {
+    color: #d35400; /* Darker orange on hover */
+}
+
+.about-button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  margin-top: 1.5rem;
+  background-color: #007acc;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-family: "IRANSansX" !important;
+}
+.about-button:hover {
+  background-color: #005b99;
+}
+

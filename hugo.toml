@@ -1,0 +1,53 @@
+baseURL = "https://parsarajaee.ir/"
+languageCode = "fa"
+title = "وبلاگ پارسا رجائی"
+theme = "PaperMod"
+defaultContentLanguage = "fa"
+
+[pagination]
+  pagerSize = 5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[markup.goldmark.renderer]
+  unsafe = true
+  
+[related]
+threshold = 80
+includeNewer = true
+
+[[related.indices]]
+name = "categories"
+weight = 100
+
+[[related.indices]]
+name = "tags"
+weight = 80
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name = "درباره من"
+    url = "/about/"
+    weight = 10
+
+
+  # Giscus comment config (nested under params)
+  [params.giscus]
+    enable = true
+    repo = "yourusername/yourrepo"
+    repoID = "YOUR_REPO_ID"
+    category = "Announcements"
+    categoryID = "YOUR_CATEGORY_ID"
+    mapping = "pathname"
+    reactionsEnabled = "1"
+    theme = "light"
+
+  # Custom CSS
+[params.assets]
+  customCSS = ["css/custom.css"]

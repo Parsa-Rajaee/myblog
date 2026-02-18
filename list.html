@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<div class="main-content">
+
+  <!-- Sidebar with categories (only on homepage) -->
+  <aside class="sidebar">
+    <h2>دسته‌ها</h2>
+    <ul>
+      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+        <li><a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }} ({{ len $taxonomy }})</a></li>
+      {{ end }}
+    </ul>
+  </aside>
+
+  <!-- Posts list -->
+  <div class="content">
+    {{ range .Paginator.Pages }}
+      <div class="post-card">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <div class="post-meta">
+          {{ .Date.Format "2006-01-02" }} | 
+          {{ range $index, $cat := .Params.categories }}
+            {{ if $index }}, {{ end }}
+            <a href="{{ "categories/" | relLangURL }}{{ $cat | urlize }}">{{ $cat }}</a>
+          {{ end }}
+        </div>
+        {{ .Summary }}
+      </div>
+    {{ end }}
+
+    <!-- Pagination -->
+    {{ template "_internal/pagination.html" . }}
+  </div>
+
+</div>
+
+{{ end }}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
+<head>
+    {{- partial "head.html" . }}
+</head>
+
+<body class="
+{{- if (or (ne .Kind `page`) (eq .Layout `archives`) (eq .Layout `search`)) -}}
+list
+{{- end -}}
+{{- if eq site.Params.defaultTheme `dark` -}}
+dark
+{{- end -}}
+" id="top">
+
+    {{- partialCached "header.html" . .Page -}}
+
+    <div class="layout">
+        <!-- Main content -->
+        <main class="main">
+            {{- block "main" . }}{{ end }}
+        </main>
+
+        <!-- Sidebar with image -->
+        <aside class="sidebar">
+            <img src="/images/flow-right.png" alt="Vector field">
+        </aside>
+    </div>
+
+    {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    <script src="/js/main.js"></script>
+</body>
+</html>
