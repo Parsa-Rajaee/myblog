@@ -44,10 +44,10 @@ weight = 80
 
 [params.giscus]
   enable = true
-  repo = "yourusername/yourrepo"
-  repoID = "YOUR_REPO_ID"
-  category = "Announcements"
-  categoryID = "YOUR_CATEGORY_ID"
+  repo = "Parsa-Rajaee/myblog"
+  repoID = "R_kgDORTKYTg"
+  category = "General"
+  categoryID = "DIC_kwDORTKYTs4C2vgv"
   mapping = "pathname"
   reactionsEnabled = "1"
   theme = "light"
