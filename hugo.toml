@@ -16,7 +16,7 @@ defaultContentLanguage = "fa"
 
 [markup.goldmark.renderer]
   unsafe = true
-  
+
 [related]
 threshold = 80
 includeNewer = true
@@ -36,18 +36,19 @@ weight = 80
     url = "/about/"
     weight = 10
 
+[params]
+  disqusShortname = ""
 
-  # Giscus comment config (nested under params)
-  [params.giscus]
-    enable = true
-    repo = "yourusername/yourrepo"
-    repoID = "YOUR_REPO_ID"
-    category = "Announcements"
-    categoryID = "YOUR_CATEGORY_ID"
-    mapping = "pathname"
-    reactionsEnabled = "1"
-    theme = "light"
-
-  # Custom CSS
 [params.assets]
   customCSS = ["css/custom.css"]
+
+[params.giscus]
+  enable = true
+  repo = "yourusername/yourrepo"
+  repoID = "YOUR_REPO_ID"
+  category = "Announcements"
+  categoryID = "YOUR_CATEGORY_ID"
+  mapping = "pathname"
+  reactionsEnabled = "1"
+  theme = "light"
+

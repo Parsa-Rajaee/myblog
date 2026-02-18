@@ -20,11 +20,6 @@ dark
         <main class="main">
             {{- block "main" . }}{{ end }}
         </main>
-
-        <!-- Sidebar with image -->
-        <aside class="sidebar">
-            <img src="/images/flow-right.png" alt="Vector field">
-        </aside>
     </div>
 
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
