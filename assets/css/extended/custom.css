@@ -281,19 +281,21 @@ body.dark .category-item:hover a {
 /* ======================================= */
 /* 7. Mobile responsiveness                 */
 /* ======================================= */
-@media (max-width: 992px) {
+@media (max-width: 768px) {
   .main-content {
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 2rem;
+  }
+
+  .posts-wrapper,
+  .content {
+    order: 1;
   }
 
   .sidebar {
     width: 100%;
     padding: 0;
-  }
-
-  .content {
-    width: 100%;
+    order: 2;
   }
 
   .sidebar h2 {
