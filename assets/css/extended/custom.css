@@ -64,6 +64,32 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Dark mode text colors */
+body.dark {
+  color: #ffffff;
+  background-color: #1a1a1a;
+}
+
+body.dark .sidebar h2 {
+  color: #ffffff;
+}
+
+body.dark .sidebar a {
+  color: #e0e0e0;
+}
+
+body.dark .sidebar a:hover {
+  color: #FF6600;
+}
+
+body.dark .category-item a {
+  color: #e0e0e0;
+}
+
+body.dark .category-item:hover a {
+  color: #ffffff;
+}
 /* ======================================= */
 /* 2. Center blog title                     */
 /* ======================================= */
