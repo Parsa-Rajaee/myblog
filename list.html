@@ -14,7 +14,7 @@
             <a href="{{ "categories/" | relLangURL }}{{ $cat | urlize }}">{{ $cat }}</a>
           {{ end }}
         </div>
-        {{ .Summary }}
+        <div class="card-excerpt">{{ .Summary }}</div>
       </div>
     {{ end }}
 
