@@ -370,3 +370,59 @@ body.dark .category-item:hover a {
   background-color: #005b99;
 }
 
+/* ======================================= */
+/* Card excerpt: limit to 3 lines          */
+/* ======================================= */
+.card-excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+/* ======================================= */
+/* Article readability                     */
+/* ======================================= */
+.post-content {
+  max-width: 70ch;
+  line-height: 1.6;
+  margin: 0 auto;
+}
+
+/* ======================================= */
+/* Homepage introduction block             */
+/* ======================================= */
+.home-intro {
+  max-width: 720px;
+  margin: 1.5rem auto 2rem auto;
+  padding: 1rem 1.2rem;
+  border-right: 4px solid #FF6600;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+body.dark .home-intro {
+  color: #ccc;
+}
+
+/* ======================================= */
+/* Vertical spacing improvements           */
+/* ======================================= */
+.post-card,
+.post-entry {
+  margin-bottom: 2.5rem;
+}
+
+.post-content h2,
+.post-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.post-content p {
+  margin-bottom: 1.2rem;
+}
+

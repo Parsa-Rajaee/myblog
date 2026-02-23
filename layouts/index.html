@@ -1,5 +1,9 @@
 {{ define "main" }}
 
+<div class="home-intro">
+  <p>درباره آمار، استدلال اقتصادی و فلسفه علم می‌نویسم. این وبلاگ فضایی برای تفکر منسجم و کاوش عمیق است.</p>
+</div>
+
 <div class="main-content">
 
   <!-- Posts -->
@@ -8,7 +12,7 @@
       {{ range .Paginator.Pages }}
         <article class="post-entry">
           <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          <p>{{ .Summary }}</p>
+          <div class="card-excerpt">{{ .Summary }}</div>
         </article>
       {{ end }}
 

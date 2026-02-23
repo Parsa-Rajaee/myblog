@@ -38,6 +38,7 @@ weight = 80
 
 [params]
   disqusShortname = ""
+  comments = true
 
 [params.assets]
   customCSS = ["css/custom.css"]
