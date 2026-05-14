@@ -1,419 +1,26 @@
 /* ======================================= */
-/* 1. Body / RTL / font                     */
+/* Vazirmatn Font  loaded from CDN        */
 /* ======================================= */
-/*@import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.003/Vazirmatn-font-face.css');
-*/
-@font-face {
-  font-family: "IRANSansX";
-  src: url("/fonts/IRANSansX-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.003/Vazirmatn-font-face.css');
 
-@font-face {
-  font-family: "IRANSansX";
-  src: url("/fonts/IRANSansX-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-/* Wrapper: flexbox with main + sidebar */
-.content-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-/* Main content takes most of the width */
-.main {
-  flex: 1;
-  z-index: 1;
-}
-
-
-.about-button {
-  position: fixed;
-  bottom: 2rem;
-  left: 2rem; /* or right: 2rem; depending on where you want */
-  background-color: #FF6600;
-  color: #fff !important;
-  padding: 0.8rem 1.2rem;
-  border-radius: 8px;
-  font-family: "IRANSansX" !important;
-  font-size: 1rem;
-  text-decoration: none;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: background 0.3s ease;
-  z-index: 1000;
-}
-
-.about-button:hover {
-  background-color: #e55c00;
-}
-
-
-
+/* ======================================= */
+/* Body / font                             */
+/* ======================================= */
 body {
-  direction: rtl;
-  text-align: right;
-  font-family: "IRANSansX" !important;
-  line-height: 1.6;
-  background-color: #ffffff;
-  color: #111111;
-  margin: 0;
-  padding: 0;
-}
-
-/* Dark mode text colors */
-body.dark {
-  color: #ffffff;
-  background-color: #1a1a1a;
-}
-
-body.dark .sidebar h2 {
-  color: #ffffff;
-}
-
-body.dark .sidebar a {
-  color: #e0e0e0;
-}
-
-body.dark .sidebar a:hover {
-  color: #FF6600;
-}
-
-body.dark .category-item a {
-  color: #e0e0e0;
-}
-
-body.dark .category-item:hover a {
-  color: #ffffff;
-}
-/* ======================================= */
-/* 2. Center blog title                     */
-/* ======================================= */
-.header-title {
-  text-align: center !important;
-  width: 100%;
-  margin: auto;
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 1rem 0;
-}
-
-/* ======================================= */
-/* 3. Main content and sidebar             */
-/* ======================================= */
-.main-content {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
-  gap: 1.5rem;
-}
-
-/* Sidebar - simple left column */
-.sidebar {
-  width: 100px;
-  flex-shrink: 0;
-  padding: 0;
-  background-color: transparent;
-  border-radius: 0;
-  box-shadow: none;
-}
-
-/* Sidebar header (categories) */
-.sidebar h2 {
-  text-align: right;
-  font-weight: bold;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  font-family: "IRANSansX" !important;
-  border-bottom: 2px solid #FF6600;
-  padding-bottom: 0.5rem;
-  color: #111111;
-}
-
-/* Sidebar links */
-.sidebar a {
-  display: block;
-  padding: 0.5rem 0;
-  color: #111111;
-  text-decoration: none;
-  transition: color 0.2s;
-  font-family: "IRANSansX" !important;
-}
-
-.sidebar a:hover {
-  color: #FF6600;
-}
-
-/* Category simple list styling */
-.category-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.category-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.4rem 0;
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  font-size: 0.9rem;
-  font-family: "IRANSansX" !important;
-  transition: all 0.2s ease;
-}
-
-.category-item:hover {
-  background-color: transparent;
-  color: #FF6600;
-  border-color: transparent;
-}
-
-.category-item a {
-  display: inline;
-  padding: 0;
-  color: inherit;
-  text-decoration: none;
-  font-family: "IRANSansX" !important;
-  flex: 1;
-}
-
-.category-count {
-  margin-left: 0.5rem;
-  font-size: 0.8rem;
-  background-color: transparent;
-  padding: 0;
-  border-radius: 0;
-  font-weight: normal;
-  font-family: "IRANSansX" !important;
-  white-space: nowrap;
-  opacity: 0.6;
-}
-
-.category-item:hover .category-count {
-  background-color: transparent;
-  opacity: 1;
-}
-
-/* Post wrapper */
-.posts-wrapper {
-  max-width: 720px;
-  flex-shrink: 0;
-}
-
-.posts-column {
-  width: 100%;
-}
-
-.post-card {
-  margin-bottom: 2rem;
-  padding: 1rem 1.2rem;
-  border-radius: 8px;
-  background-color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.content {
-  max-width: 720px;
-  flex-shrink: 0;
-}
-
-.post-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-/* ======================================= */
-/* 5. Pagination / Pager                    */
-/* ======================================= */
-.pagination {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.pagination a {
-  padding: 0.5rem 0.8rem;
-  margin: 0 0.2rem;
-  border-radius: 4px;
-  text-decoration: none;
-  color: #007acc;
-  border: 1px solid #ddd;
-  transition: all 0.2s;
-}
-
-.pagination a:hover {
-  background-color: #007acc;
-  color: white;
-  border-color: #007acc;
-}
-
-/* ======================================= */
-/* 6. Table of contents / optional toc      */
-/* ======================================= */
-.toc {
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.toc a {
-  text-decoration: none;
-  color: #007acc;
-}
-
-.toc a:hover {
-  text-decoration: underline;
-}
-
-/* ======================================= */
-/* 7. Mobile responsiveness                 */
-/* ======================================= */
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .posts-wrapper,
-  .content {
-    order: 1;
-  }
-
-  .sidebar {
-    width: 100%;
-    padding: 0;
-    order: 2;
-  }
-
-  .sidebar h2 {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .category-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-
-  .category-item {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-}
-
-.related-posts {
-  margin-top: 3rem;
-  padding: 1.5rem;
-  background: #f9f9f9;
-  border-radius: 12px;
-}
-
-.related-posts h2 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  font-family: "IRANSansX" !important;
-}
-
-.related-posts ul {
-  list-style: none;
-  padding: 0;
-}
-
-.related-posts li {
-    margin-top: 2rem; /* adds space above the recommended posts section */
-}
-
-.related-posts a {
-  text-decoration: none;
-  color: #007acc;
-}
-
-.related-posts a:hover {
-  text-decoration: underline;
-}
-
-.related-links a {
-    color: #e67e22; /* Orange, for example */
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.related-links a:hover {
-    color: #d35400; /* Darker orange on hover */
-}
-
-.about-button {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  margin-top: 1.5rem;
-  background-color: #007acc;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-family: "IRANSansX" !important;
-}
-.about-button:hover {
-  background-color: #005b99;
-}
-
-/* ======================================= */
-/* Card excerpt: limit to 3 lines          */
-/* ======================================= */
-.card-excerpt {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: normal;
+  font-family: Vazirmatn, sans-serif;
+  line-height: 1.8;
 }
 
 /* ======================================= */
 /* Article readability                     */
 /* ======================================= */
 .post-content {
-  max-width: 70ch;
-  line-height: 1.6;
-  margin: 0 auto;
+  line-height: 1.8;
 }
 
-/* ======================================= */
-/* Homepage introduction block             */
-/* ======================================= */
-.home-intro {
-  max-width: 720px;
-  margin: 1.5rem auto 2rem auto;
-  padding: 1rem 1.2rem;
-  border-right: 4px solid #FF6600;
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #444;
-}
-
-body.dark .home-intro {
-  color: #ccc;
-}
-
-/* ======================================= */
-/* Vertical spacing improvements           */
-/* ======================================= */
-.post-card,
-.post-entry {
-  margin-bottom: 2.5rem;
+.post-title {
+  font-size: 2rem;
+  line-height: 1.35;
 }
 
 .post-content h2,
@@ -422,7 +29,26 @@ body.dark .home-intro {
   margin-bottom: 0.75rem;
 }
 
+.post-content h2,
+.post-content h3,
+.post-content h4 {
+  display: none;
+}
+
 .post-content p {
   margin-bottom: 1.2rem;
 }
+
+.post-content img {
+  display: block;
+  margin: 1.25rem auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.post-content figure {
+  margin: 1.25rem 0;
+  text-align: center;
+}
+
 

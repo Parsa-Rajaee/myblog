@@ -1,40 +1,34 @@
-{{ define "main" }}
+{{- define "main" }}
 
-<div class="home-intro">
-  <p>درباره آمار، استدلال اقتصادی و فلسفه علم می‌نویسم. این وبلاگ فضایی برای تفکر منسجم و کاوش عمیق است.</p>
-</div>
+  {{- if site.Params.profileMode.enabled }}
+    {{- partial "index_profile.html" . }}
+  {{- else }}
+    {{- partial "home_info.html" . }}
+  {{- end }}
 
-<div class="main-content">
+  {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true" }}
+  {{- $paginator := .Paginate $pages }}
 
-  <!-- Posts -->
-  <div class="posts-wrapper">
-    <div class="posts-column">
-      {{ range .Paginator.Pages }}
-        <article class="post-entry">
-          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          <div class="card-excerpt">{{ .Summary }}</div>
-        </article>
-      {{ end }}
+  {{- range $paginator.Pages }}
+    <article class="post-entry">
+      <header class="entry-header">
+        <h2 class="entry-hint-parent">{{ .Title }}</h2>
+      </header>
+      <div class="entry-content">
+        <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+      </div>
+      <footer class="entry-footer">
+        {{- partial "post_meta.html" . -}}
+      </footer>
+      <a class="entry-link" href="{{ .Permalink }}"></a>
+    </article>
+  {{- end }}
 
-      {{ range .Pages }}
-        <article class="post-entry">
-          <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          {{ .Content }}
-        </article>
-      {{ end }}
-    </div>
-  </div>
+  {{- if gt $paginator.TotalPages 1 }}
+    <nav class="pagination">
+      {{ template "_internal/pagination.html" . }}
+    </nav>
+  {{- end }}
 
-  <!-- Sidebar with categories -->
-  <aside class="sidebar">
-    <h2>دسته‌ها</h2>
-    <ul class="category-list">
-      {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-        <li class="category-item"><a href="{{ "categories/" | relLangURL }}{{ $name | urlize }}">{{ $name }}</a><span class="category-count">({{ len $taxonomy }})</span></li>
-      {{ end }}
-    </ul>
-  </aside>
-
-</div>
-
-{{ end }}
+{{- end }}

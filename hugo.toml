@@ -4,8 +4,13 @@ title = "وبلاگ پارسا رجائی"
 theme = "PaperMod"
 defaultContentLanguage = "fa"
 
+[languages.fa]
+  languageName = "فارسی"
+  languagedirection = "rtl"
+  weight = 1
+
 [pagination]
-  pagerSize = 5
+  pagerSize = 10
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -35,13 +40,45 @@ weight = 80
     name = "درباره من"
     url = "/about/"
     weight = 10
+  [[menu.main]]
+    identifier = "tags"
+    name = "تگ‌ها"
+    url = "/tags/"
+    weight = 20
+  [[menu.main]]
+    identifier = "archives"
+    name = "آرشیو"
+    url = "/archives/"
+    weight = 30
 
 [params]
   disqusShortname = ""
   comments = true
+  mainSections = ["posts"]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowWordCount = true
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
 
-[params.assets]
-  customCSS = ["css/custom.css"]
+[params.homeInfoParams]
+  Title = "سلام 👋"
+  Content = "اینجا قدری درباره همه چیز می‌نویسم"
+
+[[params.socialIcons]]
+  name = "telegram"
+  url = "https://t.me/roznevesht_parsa_rajaei"
+
+[[params.socialIcons]]
+  name = "email"
+  url = "mailto:parsa.rajaeii@gmail.com"
+
+[[params.socialIcons]]
+  name = "linkedin"
+  url = "https://www.linkedin.com/in/parsa-rajaei-221a16208/"
 
 [params.giscus]
   enable = true

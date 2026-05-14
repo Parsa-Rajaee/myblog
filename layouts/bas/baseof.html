@@ -23,6 +23,9 @@ dark
     </div>
 
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
+    <div class="social-corner">
+      {{ partial "social_icons.html" (dict "align" "") }}
+    </div>
     <script src="/js/main.js"></script>
 </body>
 </html>
