@@ -16,12 +16,12 @@ tags:
 این موفقیت و کارایی موبایل‌ها عده‌ای را به نتیجه جالبی رساند. به این نتیجه که شاید اصلاً بدتر بهتر باشد. چون برای حل این مشکل نمی‌توانیم با دور ریختن گوشی‌ها به آغوش زندگی بازگردیم، چون بعد متوجه می‌شویم که چیزی برای خوردن نداریم.
 برای همین عده‌ای به فکر افتادند که گوشی بسازند که به اعتیادآوری گوشی‌های مرسوم نباشد و کمی از کارایی آنها را حفظ کند. من چند نمونه از این تلاش‌ها را براتون می‌گذارم:
 - **Light Phone 3** — صفحه نمایش کاغذ دیجیتال (مثل کتابخوان‌ها) و فقط ۶ برنامه دارد.
-{{< figure src="light-phone-3-1.jpg" alt="Light Phone 3" width="300" >}}
-{{< figure src="light-phone-3-2.jpg" alt="Light Phone 3" width="300" >}}
-{{< figure src="light-phone-3-3.jpg" alt="Light Phone 3" width="300" >}}
+![Light Phone 3](light-phone-3-1.jpg)
+![Light Phone 3](light-phone-3-2.jpg)
+![Light Phone 3](light-phone-3-3.jpg)
 - **Boox Palma** — از اندروید پشتیبانی می‌کند و نرم‌افزارهای بیشتری می‌شود نصب کرد، اما سیم‌کارت نمی‌خورد.
-{{< figure src="boox-palm4.jpg" alt="Boox Palma" width="300" >}}
-{{< figure src="boox-palm5.jpg" alt="Boox Palma" width="300" >}}
+![Boox Palma](boox-palm4.jpg)
+![Boox Palma](boox-palm5.jpg)
 
 ---
 ## لانچرهای مینیمال
@@ -39,7 +39,7 @@ tags:
 2. [Oasis — Minimal App Launcher](https://play.google.com/store/apps/details?id=com.crimson.oasislauncher)
 3. [Zen Detox: Minimalist Launcher](https://play.google.com/store/apps/details?id=com.zen.detox)
 4. [Minimalist Phone](https://www.farsroid.com/minimalist-phone/) — نسخه اصلی پولی است. یک چند ویژگی دارد که در بقیه ندیدم، مثل باز شدن با تأخیر، ولی چون کرک شده امنیت بقیه برنامه‌ها را ندارد.
-{{< figure src="luncher6.jpg" alt="Launcher" width="300" >}}
+![Launcher screenshot](luncher6.jpg)
 ---
 ## خاموش کردن نوتیفیکیشن‌ها
 پیرو بحث مینیمالیسم دیجیتال، این مطلب را دیدم که خیلی خوب در این موضوع می‌گنجید و مدت‌هاست که روی گلویم سنگینی می‌کرد. با اینکه بعضی از این مطالب تحقیقات زیادی درباره آنها انجام شده، اما من چون سواد و حوصله ارجاع به آنها را ندارم، طبق معمول این مطالب را نظرات شخصی من در نظر بگیرید.
