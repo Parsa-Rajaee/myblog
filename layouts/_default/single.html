@@ -28,8 +28,8 @@
   </footer>
 </article>
 
-{{- if not .IsHome }}
-  {{- partial "giscus.html" . }}
+{{- if (and (ne .Params.disable_comments true) (ne .Site.Params.disable_comments true)) }}
+  {{- partial "comments.html" . }}
 {{- end }}
 
 {{- end }}{{/* end main */}}
