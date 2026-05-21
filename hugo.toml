@@ -56,11 +56,11 @@ weight = 80
   comments = true
   mainSections = ["posts"]
   defaultTheme = "auto"
-  ShowReadingTime = true
+  ShowReadingTime = false
   ShowShareButtons = false
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
-  ShowWordCount = true
+  ShowWordCount = false
   ShowRssButtonInSectionTermList = true
   UseHugoToc = true
 

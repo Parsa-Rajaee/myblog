@@ -51,36 +51,6 @@ body {
   text-align: center;
 }
 
-/* ======================================= */
-/* Link Color                              */
-/* ======================================= */
-.post-content a {
-    color: #e55c00;
-}
 
-.dark .post-content a {
-    color: #e55c00;
-}
-
-.logo a,
-.menu a {
-    color: var(--primary);
-    /* Assuming you want to use the theme's primary color for header links */
-}
-
-.dark .logo a,
-.dark .menu a {
-    color: var(--primary);
-    /* Assuming you want to use the theme's primary color for header links in dark mode */
-}
-
-/* Keep the active menu item colored as per the theme's default */
-.menu a.active {
-    color: var(--content);
-}
-
-.dark .menu a.active {
-    color: var(--content);
-}
 
 
