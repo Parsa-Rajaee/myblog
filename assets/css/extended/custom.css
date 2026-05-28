@@ -1,13 +1,24 @@
-/* ======================================= */
-/* Vazirmatn Font  loaded from CDN        */
-/* ======================================= */
-@import url('https://cdn.jsdelivr.net/npm/vazirmatn@33.003/Vazirmatn-font-face.css');
+@font-face {
+  font-family: "IRANSansX";
+  src: url("/fonts/IRANSansX-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IRANSansX";
+  src: url("/fonts/IRANSansX-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ======================================= */
 /* Body / font                             */
 /* ======================================= */
 body {
-  font-family: Vazirmatn, sans-serif;
+  font-family: "IRANSansX", sans-serif;
   line-height: 1.8;
 }
 
@@ -49,6 +60,12 @@ body {
 .post-content figure {
   margin: 1.25rem 0;
   text-align: center;
+}
+
+.post-content a,
+.post-content a:visited {
+  color: #d35400;
+  text-decoration: none;
 }
 
 
