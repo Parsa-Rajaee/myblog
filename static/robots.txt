@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://parsarajaee.ir/sitemap.xml
