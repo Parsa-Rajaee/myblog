@@ -12,10 +12,10 @@ defaultContentLanguage = "fa"
 [pagination]
   pagerSize = 10
 
+enableRobotsTXT = true
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
-
-enableRobotsTXT = true
 
 [taxonomies]
   category = "categories"
