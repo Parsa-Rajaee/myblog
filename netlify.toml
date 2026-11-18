@@ -5,3 +5,6 @@
 [build.environment]
   HUGO_VERSION = "0.150.0"
   GIT_SUBMODULE_STRATEGY = "recursive"
+
+[context.deploy-preview]
+  command = "hugo --minify"

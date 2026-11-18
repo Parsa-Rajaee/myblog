@@ -58,6 +58,21 @@ body {
   height: auto;
 }
 
+.about-portrait {
+  float: right;
+  width: 180px;
+  margin: 0 0 1rem 1.5rem !important;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .about-portrait {
+    float: none;
+    width: 140px;
+    margin: 0 auto 1.25rem !important;
+  }
+}
+
 .post-content figure {
   margin: 1.25rem 0;
   text-align: center;

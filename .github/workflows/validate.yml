@@ -1,0 +1,53 @@
+name: Validate site
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HUGO_VERSION: 0.150.0
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Verify PaperMod submodule
+        run: test -f themes/PaperMod/theme.toml
+
+      - name: Set up Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Build site
+        run: hugo --minify --destination public
+
+      - name: Run smoke tests
+        run: ./scripts/check-build.sh public
+
+      - name: Check internal links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --offline
+            --root-dir "${{ github.workspace }}/public"
+            --remap "^https://parsarajaee\\.ir file://${{ github.workspace }}/public"
+            --no-progress
+            "public/**/*.html"
+          fail: true
+          failIfEmpty: true
+          lycheeVersion: v0.24.2
+
+      - name: Verify content was not rewritten
+        run: git diff --exit-code -- content
