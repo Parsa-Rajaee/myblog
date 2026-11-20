@@ -1,18 +1,30 @@
-{{ $photos := split (trim .Inner "\n ") "\n" }}
+{{ $video := eq (.Get "type") "video" }}
+{{ $items := split (trim .Inner "\n ") "\n" }}
 <div class="photo-gallery">
   <div class="photo-gallery-grid">
-    {{ range $photos }}
+    {{ range $items }}
       {{ $fields := split . "|" }}
-      {{ $photo := $.Page.Resources.GetMatch (index $fields 0) }}
-      {{ $thumb := $photo.Fit "480x360" }}
-      <a href="{{ $photo.RelPermalink }}">
-        <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ index $fields 1 }}" loading="lazy">
+      {{ $file := index $fields 0 }}
+      {{ $item := $.Page.Resources.GetMatch $file }}
+      {{ $preview := $item }}
+      {{ if $video }}
+        {{ $preview = $.Page.Resources.GetMatch (printf "%s-poster.jpg" (path.BaseName $file)) }}
+      {{ end }}
+      {{ $thumb := $preview.Fit "480x360" }}
+      <a href="{{ $item.RelPermalink }}"{{ if $video }} class="gallery-clip"{{ end }}>
+        <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ if not $video }}{{ index $fields 1 }}{{ end }}" loading="lazy">
+        {{ if $video }}<span class="clip-caption">{{ index $fields 1 }}</span>{{ end }}
       </a>
     {{ end }}
   </div>
-  <dialog aria-label="نمایش عکس‌ها">
+  <dialog aria-label="{{ if $video }}نمایش ویدیوها{{ else }}نمایش عکس‌ها{{ end }}">
     <button type="button" data-close autofocus>بستن</button>
-    <img class="gallery-full" alt="">
+    {{ if $video }}
+      <video controls playsinline preload="metadata" aria-label="پخش ویدیو"></video>
+      <p class="current-caption"></p>
+    {{ else }}
+      <img class="gallery-full" alt="">
+    {{ end }}
     <div class="gallery-controls">
       <button type="button" data-prev>قبلی</button>
       <span aria-live="polite"></span>
@@ -25,7 +37,10 @@
 .photo-gallery-grid a img { width:100%; height:auto; aspect-ratio:4/3; object-fit:contain; margin:0; display:block; }
 .photo-gallery dialog { margin:auto; padding:1rem; width:min(52rem,94vw); max-height:95dvh; overflow:auto; background:#181818; color:white; border:0; border-radius:.65rem; }
 .photo-gallery dialog::backdrop { background:rgb(0 0 0 / .85); }
-.photo-gallery dialog img { display:block; width:100%; height:min(65dvh,42rem); object-fit:contain; margin:.5rem auto; }
+.gallery-clip { position:relative; color:white; }
+.gallery-clip::before { content:"▶"; position:absolute; top:.5rem; right:.5rem; padding:.25rem .6rem; border-radius:1rem; background:#171717df; color:white; }
+.clip-caption { display:block; padding:.5rem .75rem; }
+.photo-gallery dialog video, .photo-gallery dialog img { display:block; width:100%; height:min(65dvh,42rem); object-fit:contain; margin:.5rem auto; }
 .photo-gallery button { cursor:pointer; background:#333; color:white; border-radius:.3rem; min-height:44px; padding:.25rem 1rem; }
 .photo-gallery button:disabled { opacity:.45; cursor:default; }
 .gallery-controls { display:flex; align-items:center; justify-content:space-between; }
@@ -33,26 +48,36 @@
 <script>
 (() => {
   const gallery = document.currentScript.closest('.photo-gallery');
-  const photos = [...gallery.querySelectorAll('a')];
+  const items = [...gallery.querySelectorAll('a')];
   const dialog = gallery.querySelector('dialog');
   if (!dialog.showModal) return;
   const image = dialog.querySelector('img');
+  const video = dialog.querySelector('video');
+  if (video) dialog.addEventListener('close', () => video.pause());
   const prev = dialog.querySelector('[data-prev]');
   const next = dialog.querySelector('[data-next]');
   const number = new Intl.NumberFormat('fa');
   let current = 0;
 
   function show(index) {
-    if (index < 0 || index >= photos.length) return;
+    if (index < 0 || index >= items.length) return;
     current = index;
-    image.src = photos[index].href;
-    image.alt = photos[index].querySelector('img').alt;
-    dialog.querySelector('span').textContent = number.format(index + 1) + ' از ' + number.format(photos.length);
+    const item = items[index];
+    if (video) {
+      video.pause();
+      video.poster = item.querySelector('img').src;
+      video.src = item.href;
+      dialog.querySelector('.current-caption').textContent = item.textContent.trim();
+    } else {
+      image.src = item.href;
+      image.alt = item.querySelector('img').alt;
+    }
+    dialog.querySelector('span').textContent = number.format(index + 1) + ' از ' + number.format(items.length);
     prev.disabled = index === 0;
-    next.disabled = index === photos.length - 1;
+    next.disabled = index === items.length - 1;
   }
 
-  photos.forEach((link, index) => link.addEventListener('click', event => {
+  items.forEach((link, index) => link.addEventListener('click', event => {
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     show(index);
@@ -62,6 +87,7 @@
   next.onclick = () => show(current + 1);
   dialog.querySelector('[data-close]').onclick = () => dialog.close();
   dialog.onkeydown = event => {
+    if (event.target === video) return;
     if (event.key === 'ArrowLeft') show(current + 1);
     if (event.key === 'ArrowRight') show(current - 1);
   };
