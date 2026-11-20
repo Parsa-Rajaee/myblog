@@ -1,0 +1,5 @@
+{{- $number := string . -}}
+{{- range $digit, $persian := slice "۰" "۱" "۲" "۳" "۴" "۵" "۶" "۷" "۸" "۹" -}}
+  {{- $number = replace $number (string $digit) $persian -}}
+{{- end -}}
+{{- return $number -}}
