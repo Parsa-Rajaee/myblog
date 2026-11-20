@@ -1,0 +1,70 @@
+{{ $photos := split (trim .Inner "\n ") "\n" }}
+<div class="photo-gallery">
+  <div class="photo-gallery-grid">
+    {{ range $photos }}
+      {{ $fields := split . "|" }}
+      {{ $photo := $.Page.Resources.GetMatch (index $fields 0) }}
+      {{ $thumb := $photo.Fit "480x360" }}
+      <a href="{{ $photo.RelPermalink }}">
+        <img src="{{ $thumb.RelPermalink }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" alt="{{ index $fields 1 }}" loading="lazy">
+      </a>
+    {{ end }}
+  </div>
+  <dialog aria-label="نمایش عکس‌ها">
+    <button type="button" data-close autofocus>بستن</button>
+    <img class="gallery-full" alt="">
+    <div class="gallery-controls">
+      <button type="button" data-prev>قبلی</button>
+      <span aria-live="polite"></span>
+      <button type="button" data-next>بعدی</button>
+    </div>
+  </dialog>
+<style>
+.photo-gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(135px,44%),1fr)); gap:.5rem; }
+.photo-gallery-grid a { background:#161616; border-radius:.4rem; overflow:hidden; box-shadow:none; }
+.photo-gallery-grid a img { width:100%; height:auto; aspect-ratio:4/3; object-fit:contain; margin:0; display:block; }
+.photo-gallery dialog { margin:auto; padding:1rem; width:min(52rem,94vw); max-height:95dvh; overflow:auto; background:#181818; color:white; border:0; border-radius:.65rem; }
+.photo-gallery dialog::backdrop { background:rgb(0 0 0 / .85); }
+.photo-gallery dialog img { display:block; width:100%; height:min(65dvh,42rem); object-fit:contain; margin:.5rem auto; }
+.photo-gallery button { cursor:pointer; background:#333; color:white; border-radius:.3rem; min-height:44px; padding:.25rem 1rem; }
+.photo-gallery button:disabled { opacity:.45; cursor:default; }
+.gallery-controls { display:flex; align-items:center; justify-content:space-between; }
+</style>
+<script>
+(() => {
+  const gallery = document.currentScript.closest('.photo-gallery');
+  const photos = [...gallery.querySelectorAll('a')];
+  const dialog = gallery.querySelector('dialog');
+  if (!dialog.showModal) return;
+  const image = dialog.querySelector('img');
+  const prev = dialog.querySelector('[data-prev]');
+  const next = dialog.querySelector('[data-next]');
+  const number = new Intl.NumberFormat('fa');
+  let current = 0;
+
+  function show(index) {
+    if (index < 0 || index >= photos.length) return;
+    current = index;
+    image.src = photos[index].href;
+    image.alt = photos[index].querySelector('img').alt;
+    dialog.querySelector('span').textContent = number.format(index + 1) + ' از ' + number.format(photos.length);
+    prev.disabled = index === 0;
+    next.disabled = index === photos.length - 1;
+  }
+
+  photos.forEach((link, index) => link.addEventListener('click', event => {
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    show(index);
+    dialog.showModal();
+  }));
+  prev.onclick = () => show(current - 1);
+  next.onclick = () => show(current + 1);
+  dialog.querySelector('[data-close]').onclick = () => dialog.close();
+  dialog.onkeydown = event => {
+    if (event.key === 'ArrowLeft') show(current + 1);
+    if (event.key === 'ArrowRight') show(current - 1);
+  };
+})();
+</script>
+</div>
