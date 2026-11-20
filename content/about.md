@@ -2,6 +2,7 @@
 title: "درباره من"
 date: 2025-01-01
 layout: "page"
+comments: false
 url: "/about/"
 ---
 
