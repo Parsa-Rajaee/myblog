@@ -84,6 +84,42 @@ body {
   text-decoration: none;
 }
 
+/* Post-to-post navigation */
+.post-footer .paginav {
+  display: grid;
+  gap: 0.5rem;
+  padding-block-start: 1rem;
+  border: 0;
+  border-block-start: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+}
 
+.post-footer .paginav a {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 0.35rem 0;
+  border-radius: 0;
+  background: transparent;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
 
+.post-footer .paginav .title {
+  display: block;
+  color: var(--secondary);
+  font-size: 0.8rem;
+  letter-spacing: normal;
+}
 
+.post-footer .paginav a > span:last-child {
+  text-decoration: underline;
+  text-underline-offset: 0.22em;
+}
+
+.post-footer .paginav a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
