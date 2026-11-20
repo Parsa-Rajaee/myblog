@@ -41,9 +41,11 @@ tags: ["موسیقی", "فضا"]
 و خوب واقعا هم شعر قشنگیه لیاقت اینکه برای نمایندگی بشر فرستاده بشه را داره.
 
 و البته بخش اصلی این پروژه برای نمایش تمدن بشر ۹۰ دقیقه موسیقی‌ای بود که از فرهنگ‌های مختلف روی این صفحه ضبط کردند. موسیقی که تصمیم گرفتند با آن شروع کنند یکی از کنسرتو براندنبورگ‌های(Brandenburg Concerto) باخ است.
-و یک موردی اینکه من خودم هم به تقلید از اینها اولین آهنگی که در پروفایل تلگرامم گذاشته بودم کنسرتو یکی از براندنبورگ‌های باخ بود. فقط من شماره یکش را گذاشتم.
+و یک موردی اینکه من خودم هم به تقلید از اینها اولین آهنگی که در پروفایل تلگرامم گذاشته بودم یکی از کنسرتو براندنبورگ‌های باخ بود. فقط من شماره یکش را گذاشتم.
 
-Brandenburg Concerto No. 2 in F Major, BWV 1047: I. Allegro
+[Brandenburg Concerto No. 2 in F Major, BWV 1047: I. Allegro](https://www.youtube.com/watch?v=olLi5RtE_6M)
+
+{{< youtube olLi5RtE_6M >}}
 
 یک موضوع دیگه اینکه احتمالی که این ضبط‌ها به دست فضایی‌ها برسه یکم بیشتر از صفره ولی صفر نیست. این کار بیشتر برای انسا‌ن‌هاست اینکه بلاخره ما چند هزار سال یک تمدنی درست کردیم تاریخی داریم یک سیاره‌ای داریم همه اینها را اگر بخوایم از دید یک فضایی ببینیم کار جالبیه.
 
@@ -54,17 +56,23 @@ https://youtube.com/playlist?list=PL3lxrIznkXXYS1K0PJ5_sou2QdE06Msve&si=8oEd2-ue
 تنوع خیلی جالبی داره.
 یک چندتاشو میزارم.
 
-Voyager's Golden Record - Iziel je Delyo Hagdutin - Bulgaria
+[Voyager's Golden Record - Iziel je Delyo Hagdutin - Bulgaria](https://www.youtube.com/watch?v=ZP29VyGOLnw)
+
+{{< youtube ZP29VyGOLnw >}}
 
 میخواستم ازش تعریف کنم یاد یک نقل قولی افتادم که جدیدا شنیدم
 
 > ...هیچ کس زمان تماشا غروب آفتاب دست نمی‌زند
 
-Voyager's Golden Record - Johnny B  Goode - Chuck Berry
+[Voyager's Golden Record - Johnny B  Goode - Chuck Berry](https://www.youtube.com/watch?v=Qz126SNxAts)
+
+{{< youtube Qz126SNxAts >}}
 
 این هم جالبه بود برام
 پنجم‌های موازی که داخلش می‌خوانند در اکثر موسیقی‌هایی که می‌شنویم غیر قانونیه
 
 پنجم موازی هم خیلی خلاصه یعنی دوتا صدا که از هم پنج تا فاصله دارند بروند به دو نت دیگه که اون ها هم پنج‌تا از هم فاصله دارند.
 
-Voyager's Golden Record - Tchakrulo - Choir - Georgia
+[Voyager's Golden Record - Tchakrulo - Choir - Georgia](https://www.youtube.com/watch?v=bV85zrndvdY)
+
+{{< youtube bV85zrndvdY >}}
