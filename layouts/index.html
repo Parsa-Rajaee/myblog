@@ -26,8 +26,13 @@
   {{- end }}
 
   {{- if gt $paginator.TotalPages 1 }}
-    <nav class="pagination">
-      {{ template "_internal/pagination.html" . }}
+    <nav class="home-pagination" aria-label="صفحه‌بندی نوشته‌ها">
+      {{- with $paginator.Prev }}
+        <a href="{{ .URL }}" rel="prev">نوشته‌های جدیدتر</a>
+      {{- end }}
+      {{- with $paginator.Next }}
+        <a href="{{ .URL }}" rel="next">نوشته‌های قدیمی‌تر</a>
+      {{- end }}
     </nav>
   {{- end }}
 
